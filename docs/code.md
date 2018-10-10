@@ -5148,6 +5148,8 @@ class BuildHandler(APIHandler):
 build_path = r"/lab/api/build"
 ```
 
+#### Lab TypeScript meta code
+
 ```typescript
 /**jupyterlab src components SinglePastCommitInfo.tsx*/
 import { JupyterLab } from '@jupyterlab/application';
@@ -5336,7 +5338,7 @@ export class SinglePastCommitInfo extends React.Component<
                   <span
                     className={`${fileIconStyle} ${parseFileExtension(
                       modifiedFile.modified_file_path
-                    )}`}
+                    )}
                     onDoubleClick={() => {
                       window.open(
                         'https://github.com/search?q=' +
@@ -5367,6 +5369,8 @@ export class SinglePastCommitInfo extends React.Component<
   }
 }
 ```
+
+#### Lab-Git TypeScript meta code
 
 ```typescript
 /** Jupyterlab-git/src/components/ResetDeleteSingleCommit.tsx*/
@@ -7951,6 +7955,2555 @@ export class BranchHeader extends React.Component<
     );
   }
 }
+```
+
+```typescript
+/** jupyterlab-git/src/componentsStyle/SinglePastCommitInfoStyle.tsx */
+import { style } from 'typestyle';
+
+export const commitStyle = style({
+  flex: '0 0 auto',
+  width: '100%',
+  paddingLeft: '10px',
+  fontSize: '12px',
+  marginBottom: '10px'
+});
+
+export const headerStyle = style({
+  backgroundColor: 'var(--md-green-500)',
+  color: 'white',
+  display: 'inline-block',
+  width: '100%',
+  height: '30px'
+});
+
+export const commitNumberLabelStyle = style({
+  float: 'right',
+  paddingRight: '19px',
+  fontWeight: 'bold',
+  display: 'inline-block'
+});
+
+export const commitAuthorLabelStyle = style({
+  fontSize: '10px'
+});
+
+export const commitAuthorIconStyle = style({
+  backgroundImage: 'var(--jp-Git-icon-author)',
+  display: 'inline-block',
+  height: '9px',
+  width: '9px'
+});
+
+export const commitLabelDateStyle = style({
+  fontSize: '13px',
+  display: 'inline-block'
+});
+
+export const commitLabelMessageStyle = style({
+  fontSize: '13px',
+  textAlign: 'left',
+  paddingRight: '10px'
+});
+
+export const commitOverviewNumbers = style({
+  fontSize: '13px',
+  fontWeight: 'bold',
+  paddingTop: '5px',
+  $nest: {
+    '& span': {
+      marginLeft: '5px'
+    },
+    '& span:nth-of-type(1)': {
+      marginLeft: '0px'
+    }
+  }
+});
+
+export const commitDetailStyle = style({
+  flex: '1 1 auto',
+  margin: '0',
+  paddingLeft: '10px',
+  overflow: 'auto'
+});
+
+export const commitDetailHeader = style({
+  borderBottom: 'var(--jp-border-width) solid var(--jp-border-color2)',
+  fontSize: '13px',
+  fontWeight: 'bold'
+});
+
+export const commitDetailFileStyle = style({
+  display: 'flex',
+  flexDirection: 'row',
+  color: 'var(--jp-ui-font-color1)',
+  height: 'var(--jp-private-running-item-height)',
+  lineHeight: 'var(--jp-private-running-item-height)',
+  whiteSpace: 'nowrap'
+});
+
+export const commitDetailFilePathStyle = style({
+  fontSize: 'var(--jp-ui-font-size1)',
+  flex: '1 1 auto',
+  marginRight: '4px',
+  paddingLeft: '4px',
+  textOverflow: 'ellipsis',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  borderRadius: '2px',
+  transition: 'background-color 0.1s ease'
+});
+
+export const iconStyle = style({
+  display: 'inline-block',
+  width: '20px',
+  height: '13px',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: '15px',
+  right: '10px'
+});
+
+export const numberofChangedFilesStyle = style({
+  backgroundImage: 'var(--jp-icon-file)'
+});
+
+export function insertionIconStyle(isLight: string) {
+  if (isLight === 'true' || isLight === undefined) {
+    return style({
+      backgroundImage: 'var(--jp-icon-insertions-made)'
+    });
+  } else {
+    return style({
+      backgroundImage: 'var(--jp-icon-insertions-made-white)'
+    });
+  }
+}
+
+export function deletionIconStyle(isLight: string) {
+  if (isLight === 'true' || isLight === undefined) {
+    return style({
+      backgroundImage: 'var(--jp-icon-deletions-made)'
+    });
+  } else {
+    return style({
+      backgroundImage: 'var(--jp-icon-deletions-made-white)'
+    });
+  }
+}
+
+export function revertButtonStyle(isLight: string) {
+  if (isLight === 'true' || isLight === undefined) {
+    return style({
+      backgroundImage: 'var(--jp-icon-rewind)',
+      marginLeft: '6px',
+      backgroundSize: '100%'
+    });
+  } else {
+    return style({
+      backgroundImage: 'var(--jp-icon-rewind-white)',
+      marginLeft: '6px',
+      backgroundSize: '100%'
+    });
+  }
+}
+
+export const numberOfDeletionsStyle = style({
+  position: 'absolute',
+  right: '12px',
+  width: '15px',
+  marginTop: '1px'
+});
+
+export const numberOfInsertionsStyle = style({
+  position: 'absolute',
+  right: '50px',
+  width: '15px',
+  marginTop: '1px'
+});
+
+export const WarningLabel = style({
+  padding: '5px 1px 5px 0'
+});
+
+export const MessageInput = style({
+  boxSizing: 'border-box',
+  width: '95%',
+  marginBottom: '7px'
+});
+
+export const Button = style({
+  outline: 'none',
+  border: 'none',
+  color: 'var(--jp-layout-color0)'
+});
+
+export const ResetDeleteDisabledButton = style({
+  backgroundColor: 'var(--jp-error-color2)'
+});
+
+export const ResetDeleteButton = style({
+  backgroundColor: 'var(--jp-error-color1)'
+});
+
+export const CancelButton = style({
+  backgroundColor: 'var(--jp-layout-color4)',
+  marginRight: '4px'
+});
 
 ```
+
+```typescript
+/** jupyterlab-git/src/conponentsStyle/PathHeaderStyle.tsx */
+import { style } from 'typestyle';
+
+export const repoStyle = style({
+  display: 'flex',
+  flexDirection: 'row',
+  backgroundColor: 'var(--jp-layout-color1)',
+  lineHeight: 'var(--jp-private-running-item-height)',
+  borderBottom: 'var(--jp-border-width) solid var(--jp-border-color2)',
+  minHeight: '35px'
+});
+
+export const repoPathStyle = style({
+  fontSize: 'var(--jp-ui-font-size1)',
+  marginRight: '4px',
+  paddingLeft: '4px',
+  textOverflow: 'ellipsis',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  verticalAlign: 'middle',
+  lineHeight: '33px',
+});
+
+export const repoRefreshStyle = style({
+  width: 'var(--jp-private-running-button-width)',
+  background: 'var(--jp-layout-color1)',
+  border: 'none',
+  backgroundImage: 'var(--jp-icon-refresh)',
+  backgroundSize: '16px',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
+  boxSizing: 'border-box',
+  outline: 'none',
+  padding: '0px 6px',
+  margin: 'auto 5px auto auto',
+  height: '24px',
+
+  $nest: {
+    '&:hover': {
+      backgroundColor: 'var(--jp-layout-color2)'
+    },
+    '&:active': {
+      backgroundColor: 'var(--jp-layout-color3)',
+    }
+  }
+});
+
+export const repoIconStyle = style({
+  padding: '0px 8px',
+  marginRight: '4px',
+  marginLeft: '8px',
+  backgroundSize: '15px',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
+  backgroundImage: 'var(--jp-icon-home)'
+});
+
+export const arrowStyle = style({
+  backgroundImage: 'var(--jp-icon-path-arrow-right)',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  width: '18px',
+  backgroundSize: '18px',
+  verticalAlign: 'middle',
+  lineHeight: '33px'
+});
+
+export const gitRepoPathContainerStyle = style({
+  display: 'inline-flex',
+  verticalAlign: 'middle',
+  lineHeight: '33px'
+});
+
+export const directoryStyle = style({
+  paddingLeft: '5px'
+});
+```
+
+```typescript
+/** jupyterlab-git/src/conponentsStyle/PastCommitStyle/tsx */
+import { style } from 'typestyle';
+
+export const pastCommitsContainerStyle = style({
+  overflowX: 'hidden'
+});
+
+```
+
+```typescript
+/** jupyterlab-git/src/conponentsStyle/NewBranchBoxStyle.tsx */
+import { style, keyframes } from 'typestyle';
+
+export const newBranchInputAreaStyle = style({
+  verticalAlign: 'middle'
+});
+
+export const slideAnimation = keyframes({
+  from: {
+    width: '0',
+    left: '0'
+  },
+  to: {
+    width: '84px',
+    left: '0'
+  }
+});
+
+export const newBranchBoxStyle = style({
+  width: '84px',
+  height: '17px',
+  boxSizing: 'border-box',
+  margin: '0',
+  padding: '2px',
+  verticalAlign: 'middle',
+  animationDuration: '0.5s',
+  animationTimingFunction: 'ease-out',
+  animationName: slideAnimation,
+  outline: 'none',
+
+  $nest: {
+    '&:focus': {
+      border: '1px var(--jp-brand-color2) solid'
+    }
+  }
+});
+
+export const buttonStyle = style({
+  backgroundSize: '100%',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
+  width: '17px',
+  height: '17px',
+  verticalAlign: 'middle',
+  outline: 'none',
+  border: 'none'
+});
+
+export const newBranchButtonStyle = style({
+  backgroundImage: 'var(--jp-icon-plus-white)',
+  backgroundColor: 'var(--jp-brand-color1)'
+});
+
+export const cancelNewBranchButtonStyle = style({
+  backgroundImage: 'var(--jp-icon-clear-white)',
+  backgroundColor: 'var(--jp-layout-color4)'
+});
+```
+
+```typescript
+/** jupyterlab-git/src/componentsStyle/HistorySideBarStyle.tsx */
+import { style } from 'typestyle';
+
+export const historySideBarStyle = style({
+  height: '100vh',
+  visibility: 'hidden',
+  width: '0px',
+  opacity: 0,
+  position: 'fixed',
+  backgroundColor: 'var(--jp-layout-color2)',
+  transition: 'width 0.3s ease, visibility 0.3s ease, opacity 0.3s ease',
+  '-webkit-transition':
+    'width 0.3s ease, visibility 0.3s ease, opacity 0.3s ease',
+  '-moz-transition': 'width 0.3s ease, visibility 0.3s ease, opacity 0.3s ease',
+  left: '33px',
+  top: '70px',
+
+  $nest: {
+    '&:first-child': {
+      paddingTop: '14px'
+    }
+  }
+});
+
+export const historySideBarExpandedStyle = style({
+  width: '50px',
+  visibility: 'visible',
+  opacity: 1
+});
+```
+
+```typescript
+/** jupyterlab-git/src/componentsStyle/GitWidgeStyle.tsx */
+import { style } from 'typestyle';
+
+export const gitWidgetStyle = style({
+  display: 'flex',
+  flexDirection: 'column',
+  minWidth: '300px',
+  color: 'var(--jp-ui-font-color1)',
+  background: 'var(--jp-layout-color1)',
+  fontSize: 'var(--jp-ui-font-size0)'
+});
+
+export const gitTabStyle = style({
+  backgroundImage: 'var(--jp-icon-git)'
+});
+
+```
+
+```typescript
+/** jupyterlab-git/src/componentsStyle/GitStageStyle.tsx */
+import { style } from 'typestyle';
+
+export const sectionFileContainerStyle = style({
+  flex: '1 1 auto',
+  margin: '0',
+  padding: '0',
+  overflow: 'auto',
+
+  $nest: {
+    '& button:disabled': {
+      opacity: 0.5
+    }
+  }
+});
+
+export const sectionFileContainerDisabledStyle = style({
+  opacity: 0.5
+});
+
+export const sectionAreaStyle = style({
+  flex: '0 0 auto',
+  margin: '4px 0px',
+  padding: '4px 1px 4px 4px',
+  fontWeight: 600,
+  borderBottom: 'var(--jp-border-width) solid var(--jp-border-color2)',
+  letterSpacing: '1px',
+  fontSize: '12px'
+});
+
+export const sectionHeaderLabelStyle = style({
+  fontSize: 'var(--jp-ui-font-size)',
+  flex: '1 1 auto',
+  textOverflow: 'ellipsis',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  borderRadius: '2px',
+  transition: 'background-color 0.1s ease',
+
+  $nest: {
+    '&:hover': {
+      backgroundColor: '0'
+    },
+    '&:focus': {
+      backgroundColor: '0'
+    }
+  }
+});
+
+export const changeStageButtonStyle = style({
+  margin: '0px 2px',
+  fontWeight: 600,
+  backgroundColor: 'transparent',
+  lineHeight: 'var(--jp-private-running-shutdown-button-height)',
+  transition: 'background-color 0.1s ease',
+  borderRadius: '2px',
+  height: '12px',
+  width: '12px',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  border: 'none',
+  outline: 'none',
+
+  $nest: {
+    '&:hover': {
+      backgroundColor: 'none',
+      outline: 'none'
+    },
+    '&:focus': {
+      border: 'none',
+      boxShadow: 'none',
+      backgroundColor: 'none'
+    }
+  }
+});
+
+export function discardFileButtonStyle(isLight: string) {
+  if(isLight === 'true' || isLight === undefined) {
+    return style({
+      backgroundImage: 'var(--jp-icon-discard-file)',
+      marginLeft: '6px',
+      backgroundSize: '120%'
+    });
+  } else {
+    return style({
+      backgroundImage: 'var(--jp-icon-discard-file-white)',
+      marginLeft: '6px',
+      backgroundSize: '120%'
+    });
+  }
+}
+
+export const discardAllWarningStyle = style({
+  height: '40px !important',
+
+  $nest: {
+    '& button': {
+      marginTop: '5px'
+    }
+  }
+});
+
+export const caretdownImageStyle = style({
+  backgroundImage: 'var(--jp-image-caretdown)'
+});
+
+export const caretrightImageStyle = style({
+  backgroundImage: 'var(--jp-image-caretright)'
+});
+
+export const changeStageButtonLeftStyle = style({
+  float: 'left'
+});
+
+```
+
+```typescript
+/** jupyterlab-git/src/componentsStyle/GitPanelStyle.tsx */
+import { style } from 'typestyle';
+
+export const panelContainerStyle = style({
+  display: 'flex',
+  flexDirection: 'column',
+  overflowY: 'auto',
+  height: '100%'
+});
+
+export const panelPushedContentStyle = style({
+  position: 'relative',
+  left: '50px',
+  width: 'calc(100% - 50px)'
+});
+
+export const panelContentStyle = style({
+  '-webkit-transition': 'all 0.5s ease',
+  '-moz-transition': 'all 0.5s ease',
+  transition: 'all 0.5s ease'
+});
+
+export const panelWarningStyle = style({
+  textAlign: 'center',
+  marginTop: '9px'
+});
+
+export const findRepoButtonStyle = style({
+  color: 'white',
+  backgroundColor: 'var(--jp-brand-color1)',
+  marginTop: '5px'
+});
+```
+
+```typescript
+/** jupyterlab-git/src/componentsStyle/FileListStyle.tsx */
+import { style } from 'typestyle';
+
+export function moveFileUpButtonStyle(isLight: string) {
+  if (isLight === 'true' || isLight === undefined) {
+    return style({
+      backgroundImage: 'var(--jp-icon-move-file-up)'
+    });
+  } else {
+    return style({
+      backgroundImage: 'var(--jp-icon-move-file-up-white)'
+    });
+  }
+}
+
+export function moveFileDownButtonStyle(isLight: string) {
+  if (isLight === 'true' || isLight === undefined) {
+    return style({
+      backgroundImage: 'var(--jp-icon-move-file-down)'
+    });
+  } else {
+    return style({
+      backgroundImage: 'var(--jp-icon-move-file-down-white)'
+    });
+  }
+}
+
+export const moveFileUpButtonSelectedStyle = style({
+  backgroundImage: 'var(--jp-icon-move-file-up-hover)'
+});
+
+export const moveFileDownButtonSelectedStyle = style({
+  backgroundImage: 'var(--jp-icon-move-file-down-hover)'
+});
+
+export const notebookFileIconStyle = style({
+  backgroundImage: 'var(--jp-icon-book)'
+});
+
+export const consoleFileIconStyle = style({
+  backgroundImage: 'var(--jp-icon-terminal)'
+});
+
+export const terminalFileIconStyle = style({
+  backgroundImage: 'var(--jp-icon-terminal)'
+});
+
+export const folderFileIconStyle = style({
+  backgroundImage: 'var(--jp-icon-directory)'
+});
+
+export const genericFileIconStyle = style({
+  backgroundImage: 'var(--jp-icon-file)'
+});
+
+export const yamlFileIconStyle = style({
+  backgroundImage: 'var(--jp-icon-yaml)'
+});
+
+export const markdownFileIconStyle = style({
+  backgroundImage: 'var(--jp-icon-markdown)'
+});
+
+export const imageFileIconStyle = style({
+  backgroundImage: 'var(--jp-icon-image)'
+});
+
+export const spreadsheetFileIconStyle = style({
+  backgroundImage: 'var(--jp-icon-spreadsheet)'
+});
+
+export const jsonFileIconStyle = style({
+  backgroundImage: 'var(--jp-icon-json)'
+});
+
+export const pythonFileIconStyle = style({
+  backgroundImage: 'var(--jp-icon-python)'
+});
+
+export const kernelFileIconStyle = style({
+  backgroundImage: 'var(--jp-icon-r)'
+});
+
+export const notebookFileIconSelectedStyle = style({
+  backgroundImage: 'var(--jp-icon-book-selected)'
+});
+
+export const consoleFileIconSelectedStyle = style({
+  backgroundImage: 'var(--jp-icon-terminal-selected)'
+});
+
+export const terminalFileIconSelectedStyle = style({
+  backgroundImage: 'var(--jp-icon-terminal-selected)'
+});
+
+export const folderFileIconSelectedStyle = style({
+  backgroundImage: 'var(--jp-icon-directory-selected)'
+});
+
+export const genericFileIconSelectedStyle = style({
+  backgroundImage: 'var(--jp-icon-file-selected)'
+});
+
+export const yamlFileIconSelectedStyle = style({
+  backgroundImage: 'var(--jp-icon-yaml-selected)'
+});
+
+export const markdownFileIconSelectedStyle = style({
+  backgroundImage: 'var(--jp-icon-markdown-selected)'
+});
+
+export const imageFileIconSelectedStyle = style({
+  backgroundImage: 'var(--jp-icon-image-selected)'
+});
+
+export const spreadsheetFileIconSelectedStyle = style({
+  backgroundImage: 'var(--jp-icon-spreadsheet-selected)'
+});
+
+export const jsonFileIconSelectedStyle = style({
+  backgroundImage: 'var(--jp-icon-json-selected)'
+});
+
+export const pythonFileIconSelectedStyle = style({
+  backgroundImage: 'var(--jp-icon-python-selected)'
+});
+
+export const kernelFileIconSelectedStyle = style({
+  backgroundImage: 'var(--jp-icon-r-selected)'
+});
+```
+
+```typescript
+/** jupyterlab-git/src/componentsStyle/FileItemStyle.tsx */
+import { style } from 'typestyle';
+
+export const fileStyle = style({
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  color: 'var(--jp-ui-font-color1)',
+  height: '25px',
+  lineHeight: 'var(--jp-private-running-item-height)',
+  paddingLeft: '4px',
+  listStyleType: 'none',
+
+  $nest: {
+    '&:hover': {
+      backgroundColor: 'rgba(153,153,153,.1)'
+    },
+    '&:hover .jp-Git-button': {
+      visibility: 'visible'
+    }
+  }
+});
+
+export const selectedFileStyle = style({
+  color: 'white',
+  background: 'var(--jp-brand-color1)',
+
+  $nest: {
+    '&:hover': {
+      color: 'white',
+      background: 'var(--jp-brand-color1) !important'
+    }
+  }
+});
+
+export const expandedFileStyle = style({
+  height: '75px'
+});
+
+export const disabledFileStyle = style({
+  opacity: 0.5
+});
+
+export const fileIconStyle = style({
+  flex: '0 0 auto',
+  padding: '0px 8px',
+  marginRight: '4px',
+  verticalAlign: 'baseline',
+  backgroundSize: '16px',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center'
+});
+
+export const fileLabelStyle = style({
+  fontSize: 'var(--jp-ui-font-size1)',
+  flex: '1 1 auto',
+  textOverflow: 'ellipsis',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  borderRadius: '2px',
+  transition: 'background-color 0.1s ease',
+
+  $nest: {
+    '&:focus': {
+      backgroundColor: 'var(--jp-layout-color3)'
+    }
+  }
+});
+
+export const fileChangedLabelStyle = style({
+  fontSize: '10px',
+  marginLeft: '5px'
+});
+
+export const selectedFileChangedLabelStyle = style({
+  color: 'white !important'
+});
+
+export const fileChangedLabelBrandStyle = style({
+  color: 'var(--jp-brand-color0)'
+});
+
+export const fileChangedLabelInfoStyle = style({
+  color: 'var(--jp-info-color0)'
+});
+
+export const discardWarningStyle = style({
+  color: 'var(--jp-ui-font-color1)',
+  marginLeft: '20px',
+  height: '50px'
+});
+
+export const fileGitButtonStyle = style({
+  visibility: 'hidden',
+  display: 'inline'
+});
+
+export const fileButtonStyle = style({
+  marginTop: '5px'
+});
+
+export const discardButtonStyle = style({
+  color: 'white'
+});
+
+export const discardFileButtonSelectedStyle = style({
+  backgroundImage: 'var(--jp-icon-discard-file-selected)',
+  marginLeft: '6px',
+  backgroundSize: '120%'
+});
+
+export const cancelDiscardButtonStyle = style({
+  backgroundColor: 'var(--jp-border-color0)',
+  border: 'none'
+});
+
+export const acceptDiscardButtonStyle = style({
+  backgroundColor: 'var(--jp-error-color0)',
+  border: 'none',
+  marginLeft: '5px'
+});
+
+export const sideBarExpandedFileLabelStyle = style({
+  maxWidth: '75%'
+});
+
+```
+
+```typescript
+/** jupyterlab-git/src/componentsStyle/BranchHeaderStyle.tsx */
+import { style } from 'typestyle';
+
+export const branchStyle = style({
+  zIndex: 1,
+  height: '100px',
+  textAlign: 'center',
+  overflowY: 'auto'
+});
+
+export const smallBranchStyle = style({
+  height: '35px'
+});
+
+export const expandedBranchStyle = style({
+  height: '500px'
+});
+
+export const openHistorySideBarButtonStyle = style({
+  backgroundColor: 'var(--jp-layout-color3)',
+  width: '50px',
+  height: '15px',
+  position: 'fixed',
+  left: '33px',
+  outline: 'none',
+  border: 'none',
+  color: '#FFFFFF'
+});
+
+export const openHistorySideBarIconStyle = style({
+  backgroundImage: 'var(--jp-caret-right-white)',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: '100%',
+  width: '8px',
+  height: '8px'
+});
+
+export const branchLabelStyle = style({
+  fontSize: 'var(--jp-ui-font-size1)',
+  marginTop: '5px',
+  marginBottom: '5px',
+  display: 'inline-block'
+});
+
+export const branchIconStyle = style({
+  backgroundImage: 'var(--jp-Git-icon-branch)',
+  display: 'inline-block',
+  height: '14px',
+  width: '14px',
+  margin: '6px 10px -2px 0px',
+  backgroundRepeat: 'no-repeat'
+});
+
+export const branchDropdownStyle = style({
+  backgroundImage: 'var(--jp-image-caretdownwhite)',
+  backgroundColor: 'transparent',
+  flex: '0 0 auto',
+  verticalAlign: 'middle',
+  border: 'var(--md-grey-700)',
+  borderRadius: '0',
+  outline: 'none',
+  width: '11px',
+  height: '11px',
+  marginTop: '8px',
+  marginBottom: '2px',
+  textIndent: '20px',
+  '-webkit-appearance': 'none',
+  '-moz-appearance': 'none'
+});
+
+export const headerButtonStyle = style({
+  color: 'var(--jp-content-link-color)',
+  fontSize: '10px',
+  marginLeft: '5px'
+});
+
+export function branchDropdownButtonStyle(isLight: string) {
+  if (isLight === 'true' || isLight === undefined) {
+    return style({
+      backgroundImage: 'var(--jp-icon-arrow-down)',
+      backgroundSize: '100%',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      height: '18px',
+      width: '18px',
+      display: 'inline-block',
+      verticalAlign: 'middle'
+    });
+  } else {
+    return style({
+      backgroundImage: 'var(--jp-icon-arrow-down-white)',
+      backgroundSize: '100%',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      height: '18px',
+      width: '18px',
+      display: 'inline-block',
+      verticalAlign: 'middle'
+    });
+  }
+}
+
+export function newBranchButtonStyle(isLight: string) {
+  if (isLight === 'true' || isLight === undefined) {
+    return style({
+      backgroundImage: 'var(--jp-icon-plus)',
+      backgroundSize: '100%',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      height: '18px',
+      width: '18px',
+      display: 'inline-block',
+      verticalAlign: 'middle'
+    });
+  } else {
+    return style({
+      backgroundImage: 'var(--jp-icon-plus-white)',
+      backgroundSize: '100%',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      height: '18px',
+      width: '18px',
+      display: 'inline-block',
+      verticalAlign: 'middle'
+    });
+  }
+}
+
+export const headerButtonDisabledStyle = style({
+  opacity: 0.5
+});
+
+export const branchListItemStyle = style({
+  listStyle: 'none',
+  color: 'var(--jp-ui-font-color1)'
+});
+
+export const stagedCommitButtonStyle = style({
+  backgroundColor: 'var(--jp-brand-color1)',
+  backgroundImage: 'var(--jp-checkmark)',
+  backgroundSize: '100%',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
+  color: 'white',
+  height: '42px',
+  width: '40px',
+  border: '0',
+  flex: '1 1 auto'
+});
+
+export const stagedCommitButtonReadyStyle = style({
+  opacity: 0.3
+});
+
+export const stagedCommitButtonDisabledStyle = style({
+  backgroundColor: 'lightgray'
+});
+
+export const textInputStyle = style({
+  outline: 'none'
+});
+
+export const stagedCommitStyle = style({
+  resize: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  margin: '8px'
+});
+
+export const stagedCommitMessageStyle = style({
+  width: '75%',
+  fontWeight: 300,
+  height: '32px',
+  overflowX: 'auto',
+  border: 'var(--jp-border-width) solid var(--jp-border-color2)',
+  flex: '20 1 auto',
+  resize: 'none',
+  padding: '4px 8px',
+
+  $nest: {
+    '&:focus': {
+      outline: 'none'
+    }
+  }
+});
+
+export const branchHeaderCenterContent = style({
+  padding: '0 50px 0 50px'
+});
+```
+
+```typescript
+/** jupyterlab-git/src/git.ts */
+import { ServerConnection } from '@jupyterlab/services';
+
+import { URLExt } from '@jupyterlab/coreutils';
+
+'use strict';
+
+/** Interface for GitAllHistory request result, 
+  * has all repo information */
+export interface GitAllHistory {
+  code: number;
+  data?: {
+    show_top_level?: GitShowTopLevelResult;
+    branch?: GitBranchResult;
+    log?: GitLogResult;
+    status?: GitStatusResult;
+  };
+}
+
+/** Interface for GitShowTopLevel request result, 
+  * has the git root directory inside a repository */
+export interface GitShowTopLevelResult {
+  code: number;
+  top_repo_path?: string;
+}
+
+/** Interface for GitShowPrefix request result, 
+  * has the prefix path of a directory in a repository, 
+  * with respect to the root directory. */
+export interface GitShowPrefixResult {
+  code: number;
+  under_repo_path?: string;
+}
+
+/** Interface for GitShowPrefix request result, 
+  * has the prefix path of a directory in a repository, 
+  * with respect to the root directory. */
+export interface GitCheckoutResult {
+  code: number;
+  message?: string;
+}
+
+/** Interface for GitBranch request result, 
+  * has the result of changing the current working branch */
+export interface GitBranchResult {
+  code: number;
+  branches?: [
+    {
+      current: boolean;
+      remote: boolean;
+      name: string;
+      tag: string;
+    }
+  ];
+}
+
+/** Interface for GitStatus request result, 
+   * has the status of each changed file */
+export interface GitStatusFileResult {
+  x: string;
+  y: string;
+  to: string;
+  from: string;
+}
+
+/** Interface for GitStatus request result, 
+  * has the status of the entire repo */
+export interface GitStatusResult {
+  code: number;
+  files?: [GitStatusFileResult];
+}
+
+/** Interface for GitLog request result, 
+  * has the info of a single past commit */
+export interface SingleCommitInfo {
+  commit: string;
+  author: string;
+  date: string;
+  commit_msg: string;
+  pre_commit: string;
+}
+
+/** Interface for GitCommit request result, 
+  * has the info of a committed file */
+export interface CommitModifiedFile {
+  modified_file_path: string;
+  modified_file_name: string;
+  insertion: string;
+  deletion: string;
+}
+
+/** Interface for GitDetailedLog request result, 
+  * has the detailed info of a single past commit */
+export interface SingleCommitFilePathInfo {
+  code: number;
+  modified_file_note?: string;
+  modified_files_count?: string;
+  number_of_insertions?: string;
+  number_of_deletions?: string;
+  modified_files?: [CommitModifiedFile];
+}
+
+/** Interface for GitLog request result, 
+  * has the info of all past commits */
+export interface GitLogResult {
+  code: number;
+  commits?: [SingleCommitInfo];
+}
+
+/** Makes a HTTP request, sending a git command to the backend */
+function httpGitRequest(
+  url: string,
+  method: string,
+  request: Object
+): Promise<Response> {
+  let fullRequest = {
+    method: method,
+    body: JSON.stringify(request)
+  };
+
+  let setting = ServerConnection.makeSettings();
+  let fullUrl = URLExt.join(setting.baseUrl, url);
+  return ServerConnection.makeRequest(fullUrl, fullRequest, setting);
+}
+
+/** Parent class for all API requests */
+export class Git {
+  constructor() {}
+
+  /** Make request for all git info of repository 'path' */
+  async allHistory(path: string): Promise<GitAllHistory> {
+    try {
+      let response = await httpGitRequest('/git/all_history', 'POST', {
+        current_path: path
+      });
+      if (response.status !== 200) {
+        return response.text().then(data => {
+          throw new ServerConnection.ResponseError(response, data);
+        });
+      }
+      return response.json();
+    } catch (err) {
+      throw ServerConnection.NetworkError;
+    }
+  }
+
+  /** Make request for top level path of repository 'path' */
+  async showTopLevel(path: string): Promise<GitShowTopLevelResult> {
+    try {
+      let response = await httpGitRequest('/git/show_top_level', 'POST', {
+        current_path: path
+      });
+      if (response.status !== 200) {
+        return response.json().then((data: any) => {
+          throw new ServerConnection.ResponseError(response, data.message);
+        });
+      }
+      return response.json();
+    } catch (err) {
+      throw ServerConnection.NetworkError;
+    }
+  }
+
+  /** Make request for the prefix path of a directory 'path', 
+    * with respect to the root directory of repository  */
+  async showPrefix(path: string): Promise<GitShowPrefixResult> {
+    try {
+      let response = await httpGitRequest('/git/show_prefix', 'POST', {
+        current_path: path
+      });
+      if (response.status !== 200) {
+        return response.json().then((data: any) => {
+          throw new ServerConnection.ResponseError(response, data.message);
+        });
+      }
+      return response.json();
+    } catch (err) {
+      throw ServerConnection.NetworkError;
+    }
+  }
+
+  /** Make request for git status of repository 'path' */
+  async status(path: string): Promise<GitStatusResult> {
+    try {
+      let response = await httpGitRequest('/git/status', 'POST', {
+        current_path: path
+      });
+      if (response.status !== 200) {
+        return response.json().then((data: any) => {
+          throw new ServerConnection.ResponseError(response, data.message);
+        });
+      }
+      return response.json();
+    } catch (err) {
+      throw ServerConnection.NetworkError;
+    }
+  }
+
+  /** Make request for git commit logs of repository 'path' */
+  async log(path: string): Promise<GitLogResult> {
+    try {
+      let response = await httpGitRequest('/git/log', 'POST', {
+        current_path: path
+      });
+      if (response.status !== 200) {
+        return response.json().then((data: any) => {
+          throw new ServerConnection.ResponseError(response, data.message);
+        });
+      }
+      return response.json();
+    } catch (err) {
+      throw ServerConnection.NetworkError;
+    }
+  }
+
+  /** Make request for detailed git commit info of 
+    * commit 'hash' in repository 'path' */
+  async detailedLog(
+    hash: string,
+    path: string
+  ): Promise<SingleCommitFilePathInfo> {
+    try {
+      let response = await httpGitRequest('/git/detailed_log', 'POST', {
+        selected_hash: hash,
+        current_path: path
+      });
+      if (response.status !== 200) {
+        return response.json().then((data: any) => {
+          throw new ServerConnection.ResponseError(response, data.message);
+        });
+      }
+      return response.json();
+    } catch (err) {
+      throw ServerConnection.NetworkError;
+    }
+  }
+
+  /** Make request for a list of all git branches in repository 'path' */
+  async branch(path: string): Promise<GitBranchResult> {
+    try {
+      let response = await httpGitRequest('/git/branch', 'POST', {
+        current_path: path
+      });
+      if (response.status !== 200) {
+        return response.json().then((data: any) => {
+          throw new ServerConnection.ResponseError(response, data.message);
+        });
+      }
+      return response.json();
+    } catch (err) {
+      throw ServerConnection.NetworkError;
+    }
+  }
+
+  /** Make request to add one or all files into 
+    * the staging area in repository 'path' */
+  async add(check: boolean, filename: string, path: string): Promise<Response> {
+    return httpGitRequest('/git/add', 'POST', {
+      add_all: check,
+      filename: filename,
+      top_repo_path: path
+    });
+  }
+
+  /** Make request to add all untracked files into 
+    * the staging area in repository 'path' */
+  async addAllUntracked(path: string): Promise<Response> {
+    try {
+      let response = await httpGitRequest('/git/add_all_untracked', 'POST', {
+        top_repo_path: path
+      });
+      if (response.status !== 200) {
+        return response.json().then((data: any) => {
+          throw new ServerConnection.ResponseError(response, data.message);
+        });
+      }
+      return response.json();
+    } catch (err) {
+      throw ServerConnection.NetworkError;
+    }
+  }
+
+  /** Make request to switch current working branch, 
+    * create new branch if needed, 
+    * or discard all changes, 
+    * or discard a specific file change 
+    * TODO: Refactor into seperate endpoints for each kind of checkout request */
+  async checkout(
+    checkout_branch: boolean,
+    new_check: boolean,
+    branchname: string,
+    checkout_all: boolean,
+    filename: string,
+    path: string
+  ): Promise<Response> {
+    try {
+      let response = await httpGitRequest('/git/checkout', 'POST', {
+        checkout_branch: checkout_branch,
+        new_check: new_check,
+        branchname: branchname,
+        checkout_all: checkout_all,
+        filename: filename,
+        top_repo_path: path
+      });
+      if (response.status !== 200) {
+        return response.json().then((data: any) => {
+          throw new ServerConnection.ResponseError(response, data.message);
+        });
+      }
+      return response;
+    } catch (err) {
+      throw ServerConnection.NetworkError;
+    }
+  }
+  /** Make request to commit all staged files in repository 'path' */
+  async commit(message: string, path: string): Promise<Response> {
+    try {
+      let response = await httpGitRequest('/git/commit', 'POST', {
+        commit_msg: message,
+        top_repo_path: path
+      });
+      if (response.status !== 200) {
+        return response.json().then((data: any) => {
+          throw new ServerConnection.ResponseError(response, data.message);
+        });
+      }
+      return response;
+    } catch (err) {
+      throw ServerConnection.NetworkError;
+    }
+  }
+
+  /** Make request to move one or all files from the staged to the unstaged area */
+  async reset(
+    check: boolean,
+    filename: string,
+    path: string
+  ): Promise<Response> {
+    try {
+      let response = await httpGitRequest('/git/reset', 'POST', {
+        reset_all: check,
+        filename: filename,
+        top_repo_path: path
+      });
+      if (response.status !== 200) {
+        return response.json().then((data: any) => {
+          throw new ServerConnection.ResponseError(response, data.message);
+        });
+      }
+      return response;
+    } catch (err) {
+      throw ServerConnection.NetworkError;
+    }
+  }
+
+  /** Make request to delete changes from selected commit */
+  async deleteCommit(
+    message: string,
+    path: string,
+    commitId: string
+  ): Promise<Response> {
+    try {
+      let response = await httpGitRequest('/git/delete_commit', 'POST', {
+        commit_id: commitId,
+        top_repo_path: path
+      });
+      if (response.status !== 200) {
+        return response.json().then((data: any) => {
+          throw new ServerConnection.ResponseError(response, data.message);
+        });
+      }
+      await this.commit(message, path);
+      return response;
+    } catch (err) {
+      throw ServerConnection.NetworkError;
+    }
+  }
+
+  /** Make request to reset to selected commit */
+  async resetToCommit(
+    message: string,
+    path: string,
+    commitId: string
+  ): Promise<Response> {
+    try {
+      let response = await httpGitRequest('/git/reset_to_commit', 'POST', {
+        commit_id: commitId,
+        top_repo_path: path
+      });
+      if (response.status !== 200) {
+        return response.json().then((data: any) => {
+          throw new ServerConnection.ResponseError(response, data.message);
+        });
+      }
+      return response;
+    } catch (err) {
+      throw ServerConnection.NetworkError;
+    }
+  }
+
+  /** Make request to initialize a  new git repository at path 'path' */
+  async init(path: string): Promise<Response> {
+    try {
+      let response = await httpGitRequest('/git/init', 'POST', {
+        current_path: path
+      });
+      if (response.status !== 200) {
+        return response.json().then((data: any) => {
+          throw new ServerConnection.ResponseError(response, data.message);
+        });
+      }
+      return response;
+    } catch (err) {
+      throw ServerConnection.NetworkError;
+    }
+  }
+}
+
+```
+
+```typescript
+/** jupyterlab-git/src/gitMenuCommands.ts */
+import { Dialog, showDialog } from '@jupyterlab/apputils';
+
+import { JupyterLab } from '@jupyterlab/application';
+
+import { ServiceManager } from '@jupyterlab/services';
+
+import { InstanceTracker } from '@jupyterlab/apputils';
+
+import { Terminal } from '@jupyterlab/terminal';
+
+import { Git } from './git';
+
+/**
+ * The command IDs used by the git plugin.
+ */
+export namespace CommandIDs {
+  export const gitUI = 'git:ui';
+  export const gitTerminal = 'git:create-new-terminal';
+  export const gitTerminalCommand = 'git:terminal-command';
+  export const gitInit = 'git:init';
+  export const setupRemotes = 'git:tutorial-remotes';
+  export const googleLink = 'git:google-link';
+}
+
+/**
+ * Add the commands for the git extension.
+ */
+export function addCommands(app: JupyterLab, services: ServiceManager) {
+  let { commands } = app;
+  const namespace = 'terminal';
+  const tracker = new InstanceTracker<Terminal>({ namespace });
+  let gitApi = new Git();
+
+  /**
+   * Get the current path of the working directory.
+   */
+  function findCurrentFileBrowserPath(): string {
+    try {
+      let leftSidebarItems = app.shell.widgets('left');
+      let fileBrowser = leftSidebarItems.next();
+      while (fileBrowser.id !== 'filebrowser') {
+        fileBrowser = leftSidebarItems.next();
+      }
+      return (fileBrowser as any).model.path;
+    } catch (err) {}
+  }
+
+  /** Add open terminal command */
+  commands.addCommand(CommandIDs.gitTerminal, {
+    label: 'Open Terminal',
+    caption: 'Start a new terminal session to directly use git command',
+    execute: args => {
+      let currentFileBrowserPath = findCurrentFileBrowserPath();
+      let name = args ? args['name'] as string : '';
+      let terminal = new Terminal();
+      terminal.title.closable = true;
+      terminal.title.label = '...';
+      app.shell.addToMainArea(terminal);
+      let promise = name
+        ? services.terminals.connectTo(name)
+        : services.terminals.startNew();
+
+      return promise
+        .then(session => {
+          terminal.session = session;
+          tracker.add(terminal);
+          app.shell.activateById(terminal.id);
+          terminal.session.send({
+            type: 'stdin',
+            content: ['cd ' + currentFileBrowserPath + '\n']
+          });
+          return terminal;
+        })
+        .catch(() => {
+          terminal.dispose();
+        });
+    }
+  });
+
+  /** Add open terminal and run command */
+  commands.addCommand(CommandIDs.gitTerminalCommand, {
+    label: 'Terminal Command',
+    caption: 'Open a new terminal session and perform git command',
+    execute: args => {
+      let currentFileBrowserPath = findCurrentFileBrowserPath();
+      let changeDirectoryCommand =
+        currentFileBrowserPath === ' ' ? '' : 'cd ' + currentFileBrowserPath;
+      let gitCommand = args ? args['cmd'] as string : '';
+      let linkCommand =
+        changeDirectoryCommand !== '' && gitCommand !== '' ? '&&' : '';
+      let terminal = new Terminal();
+      terminal.title.closable = true;
+      terminal.title.label = '...';
+      app.shell.addToMainArea(terminal);
+      let promise = services.terminals.startNew();
+
+      return promise
+        .then(session => {
+          terminal.session = session;
+          tracker.add(terminal);
+          app.shell.activateById(terminal.id);
+          terminal.session.send({
+            type: 'stdin',
+            content: [changeDirectoryCommand + linkCommand + gitCommand + '\n']
+          });
+          return terminal;
+        })
+        .catch(() => {
+          terminal.dispose();
+        });
+    }
+  });
+
+  /** Add open/go to git interface command */
+  commands.addCommand(CommandIDs.gitUI, {
+    label: 'Git Interface',
+    caption: 'Go to Git user interface',
+    execute: () => {
+      try {
+        app.shell.activateById('jp-git-sessions');
+      } catch (err) {}
+    }
+  });
+
+  /** Add git init command */
+  commands.addCommand(CommandIDs.gitInit, {
+    label: 'Init',
+    caption: ' Create an empty Git repository or reinitialize an existing one',
+    execute: () => {
+      let currentFileBrowserPath = findCurrentFileBrowserPath();
+      showDialog({
+        title: 'Initialize a Repository',
+        body: 'Do you really want to make this directory a Git Repo?',
+        buttons: [Dialog.cancelButton(), Dialog.warnButton({ label: 'Yes' })]
+      }).then(result => {
+        if (result.button.accept) {
+          gitApi.init(currentFileBrowserPath);
+        }
+      });
+    }
+  });
+
+  /** Add remote tutorial command */
+  commands.addCommand(CommandIDs.setupRemotes, {
+    label: 'Set Up Remotes',
+    caption: 'Learn about Remotes',
+    execute: () => {
+      window.open(
+        'https://www.atlassian.com/git/tutorials/setting-up-a-repository'
+      );
+    }
+  });
+
+  /** Add remote tutorial command */
+  commands.addCommand(CommandIDs.googleLink, {
+    label: 'Something Else',
+    caption: 'Dummy Link ',
+    execute: () => {
+      window.open('https://www.google.com');
+    }
+  });
+}
+```
+
+```typescript
+/** juptyterlab-git/src/index/.ts */
+import { addCommands, CommandIDs } from './gitMenuCommands';
+
+import { PathExt } from '@jupyterlab/coreutils';
+
+import { GitWidget } from './components/GitWidget';
+
+import {
+  ILayoutRestorer,
+  JupyterLab,
+  JupyterLabPlugin
+} from '@jupyterlab/application';
+
+import { IMainMenu } from '@jupyterlab/mainmenu';
+
+import { Menu } from '@phosphor/widgets';
+
+import { Token } from '@phosphor/coreutils';
+
+import { gitTabStyle } from './componentsStyle/GitWidgetStyle';
+
+import '../style/variables.css';
+
+/**
+ * The default running sessions extension.
+ */
+const plugin: JupyterLabPlugin<IGitExtension> = {
+  id: 'jupyter.extensions.running-sessions-git',
+  requires: [IMainMenu, ILayoutRestorer],
+  activate,
+  autoStart: true
+};
+
+/**
+ * Export the plugin as default.
+ */
+export default plugin;
+
+export const EXTENSION_ID = 'jupyter.extensions.git_plugin';
+
+export const IGitExtension = new Token<IGitExtension>(EXTENSION_ID);
+
+/** Interface for extension class */
+export interface IGitExtension {
+  register_diff_provider(filetypes: string[], callback: IDiffCallback): void;
+}
+
+/** Function type for diffing a file's revisions */
+export type IDiffCallback = (
+  filename: string,
+  revisionA: string,
+  revisionB: string
+) => void;
+
+/** Main extension class */
+export class GitExtension implements IGitExtension {
+  git_plugin: GitWidget;
+  constructor(app: JupyterLab, restorer: ILayoutRestorer) {
+    this.git_plugin = new GitWidget(
+      app,
+      { manager: app.serviceManager },
+      this.performDiff.bind(this)
+    );
+    this.git_plugin.id = 'jp-git-sessions';
+    this.git_plugin.title.iconClass = `jp-SideBar-tabIcon ${gitTabStyle}`;
+    this.git_plugin.title.caption = 'Git';
+
+    // Let the application restorer track the running panel for restoration of
+    // application state (e.g. setting the running panel as the current side bar
+    // widget).
+
+    restorer.add(this.git_plugin, 'git-sessions');
+    app.shell.addToLeftArea(this.git_plugin, { rank: 200 });
+  }
+
+  register_diff_provider(filetypes: string[], callback: IDiffCallback): void {
+    filetypes.forEach(fileType => {
+      this.diffProviders[fileType] = callback;
+    });
+  }
+
+  performDiff(
+    app: JupyterLab,
+    filename: string,
+    revisionA: string,
+    revisionB: string
+  ) {
+    let extension = PathExt.extname(filename).toLocaleLowerCase();
+    if (this.diffProviders[extension] !== undefined) {
+      this.diffProviders[extension](filename, revisionA, revisionB);
+    } else {
+      app.commands.execute('git:terminal-cmd', {
+        cmd: 'git diff ' + revisionA + ' ' + revisionB
+      });
+    }
+  }
+
+  private diffProviders: { [key: string]: IDiffCallback } = {};
+}
+/**
+ * Activate the running plugin.
+ */
+function activate(
+  app: JupyterLab,
+  mainMenu: IMainMenu,
+  restorer: ILayoutRestorer
+): IGitExtension {
+  const { commands } = app;
+  let git_extension = new GitExtension(app, restorer);
+  const category = 'Git';
+
+  // Rank has been chosen somewhat arbitrarily to give priority to the running
+  // sessions widget in the sidebar.
+  addCommands(app, app.serviceManager);
+  let menu = new Menu({ commands });
+  let tutorial = new Menu({ commands });
+  tutorial.title.label = ' Tutorial ';
+  menu.title.label = category;
+  [
+    CommandIDs.gitUI,
+    CommandIDs.gitTerminal,
+    CommandIDs.gitInit
+  ].forEach(command => {
+    menu.addItem({ command });
+  });
+
+  [CommandIDs.setupRemotes, CommandIDs.googleLink].forEach(command => {
+    tutorial.addItem({ command });
+  });
+  menu.addItem({ type: 'submenu', submenu: tutorial });
+  mainMenu.addMenu(menu, { rank: 60 });
+  return git_extension;
+}
+```
+
+#### Lab-Model TypeScript meta code
+
+```typescript
+/** jupyter-model/src/components/tree.tsx */
+import * as React from "react";
+
+export type Tnode  = {
+    id: string;
+    name: string;
+    sequ?: string;
+    hideAble?: boolean;
+    checked?: boolean;
+    children?: Array<Tnode>;
+}
+
+export type Ttree = Tnode[];
+
+interface IProps {
+    data: Array<Object>;
+    converter: (data: any) => Ttree;
+    eventAfterChecked?: (n: Tnode) => void;
+}
+
+interface IState {
+    tree: Ttree;
+    repeatTree: Array<Tnode>;
+    checked?: Tnode;
+}
+
+export default class Tree extends React.PureComponent<IProps, IState> {
+    componentWillReceiveProps(nextProps: IProps) {
+        if(JSON.stringify(this.props.data) === JSON.stringify(nextProps.data)) return;
+        const tree: Ttree = nextProps.converter(nextProps.data);
+        this.setSequlize(tree);
+        const repeatTree = this.getRepeatTree(tree);
+        this.setState({tree, repeatTree})
+    }
+
+    public render() {
+        const {
+            checked = {},
+            repeatTree = [],
+        } = this.state || {};
+        return (
+            <ul className="jp-tree">
+                {
+                    repeatTree.map((node: Tnode) => {
+                        const deep = node.sequ.split('.').length;
+                        const iconClass = deep !== 3 ? 'jp-OpenFolderIcon' : 'jp-FileIcon';
+                        return (node.hideAble !== true) && (
+                            <li
+                                onMouseUp={() => this.handleRowClick(node)}
+                                className={jp-tree-item ${((checked as Tnode).sequ === node.sequ) ? 'jp-model-checked': ''}
+                                style={{paddingLeft: ${deep * 10}px
+                                key={node.sequ}>
+                                <span className={"jp-DirListing-itemIcon jp-MaterialIcon " + iconClass}></span>
+                                <span className="jp-DirListing-itemText">
+                                    {node.name}
+                                </span>
+                            </li>
+                        )
+                    })
+                }
+            </ul>
+        )
+    }
+
+    private setSequlize(nodes: Tnode[], pareSequ?: string): void {
+        nodes.forEach((node: Tnode, i) => {
+            node.sequ = (pareSequ !== undefined ? `${pareSequ}.` : '') + i;
+            if(node.children) {
+                this.setSequlize(node.children as Tnode[], node.sequ);
+            }
+        });
+    }
+
+    private getRepeatTree(tree: Ttree, results?: Array<Tnode>): Array<Tnode> {
+        results = results || [];
+        tree.forEach((node: Tnode) => {
+            const {
+                children,
+                ...others
+            } = node;
+            results.push(others);
+            if(children) {
+                this.getRepeatTree(children, results);
+            }
+        })
+        return results;
+    }
+
+    private forEachChildNode({sequ}: Tnode, callback?: (n:Tnode) => void): Array<Tnode> {
+        const {
+            state: {
+                repeatTree = []
+            } = {}
+        } = this;
+
+        repeatTree.forEach((_node: Tnode) => {
+            const _sequ = _node.sequ;
+            (_sequ.substr(0, sequ.length) === sequ) && (
+                callback && callback(_node)
+            )
+        });
+
+        return repeatTree;
+    }
+
+    private handleRowClick(node: Tnode) {
+        const {
+            props: {
+                eventAfterChecked = () => {},
+            }
+        } = this;
+        let hasChildShow = false;
+        this.forEachChildNode(node, ({hideAble}: Tnode) => {
+            hideAble && (hasChildShow = true)
+        });
+        const repeatTree = this.forEachChildNode(node, (_node: Tnode) => {
+            _node.hideAble = (_node.sequ !== node.sequ)
+                ? !hasChildShow
+                : false;
+        });
+        this.setState(
+            {
+                checked: node,
+                repeatTree,
+            },
+            () => {
+                eventAfterChecked(node);
+            }
+        )
+    }
+}
+```
+
+```typescript
+/** jupyter-model/src/components/tree.tsx */
+import * as React from 'react';
+
+export default class ToolBar extends React.PureComponent {
+    render() {
+        const Children = this.props.children;
+        return(
+            <div className="p-Widget jp-Toolbar jp-FileBrowser-toolbar">
+            {
+                Children
+            }
+            </div>
+        )
+    }
+}
+```
+
+```typescript
+/** jupyter-model/src/components/btns/addFile.tsx */
+import * as React from 'react';
+
+export default class AddFile extends React.PureComponent {
+    public render() {
+        return (
+            <button onClick={() => {}} className="jp-ToolbarButtonComponent" title="New Launcher">
+                <span className="jp-AddIcon jp-Icon jp-Icon-16 jp-ToolbarButtonComponent-icon"></span>
+            </button>
+        )
+    }
+}
+```
+
+```typescript
+/** jupyter-model/src/components/btns/addFolder.tsx */
+import * as React from 'react';
+
+export default class AddFolder extends React.PureComponent {
+    public render() {
+        return (
+            <button className="jp-ToolbarButtonComponent" title="New Folder">
+                <span className="jp-NewFolderIcon jp-Icon jp-Icon-16 jp-ToolbarButtonComponent-icon">
+                </span>
+            </button>
+        )
+    }
+}
+```
+
+```typescript
+/** jupyter-model/src/components/btns/addrefresh.tsx */
+import * as React from 'react';
+
+export default class Refresh extends React.PureComponent{
+    render() {
+        return(
+            <button className="jp-ToolbarButtonComponent" title="Refresh File List">
+                <span className="jp-RefreshIcon jp-Icon jp-Icon-16 jp-ToolbarButtonComponent-icon"></span>
+            </button>
+        )
+    }
+}
+```
+
+```typescript
+/** jupyter-model/src/components/btns/addupload.tsx */
+import * as React from 'react';
+
+export default class Upload extends React.PureComponent{
+    render() {
+        return (
+            <button className="jp-ToolbarButtonComponent" title="Upload Files">
+                <span className="jp-FileUploadIcon jp-Icon jp-Icon-16 jp-ToolbarButtonComponent-icon"></span>
+            </button>
+        )
+    }
+}
+```
+
+```typescript
+/** jupyterlab-model/src/models/modelFile.ts */
+export interface IModel {
+    mid: number;
+    mname: string;
+}
+
+export interface IModelType{
+    cid: number;
+    cname: string;
+    mdesc?: IModel[];
+}
+
+export interface IModelTypeRoot {
+    father_id: number;
+    type_name: string;
+    child?: IModelType[];
+}
+
+export interface IReturnModelFile {
+    type: IModelTypeRoot[]
+}
+
+```
+
+```typescript
+/** jupyterlab-model/src/widget/contextmenu.ts */
+import {Menu} from '@phosphor/widgets'
+import { CommandRegistry } from '@phosphor/commands';
+import { Contents } from '@jupyterlab/services';
+import { DocumentRegistry } from '@jupyterlab/docregistry'
+
+import { CommandsReg } from '../registry';
+
+type IModel = Contents.IModel;
+  
+
+export default class ComtextMenu extends Menu{
+    constructor(model: IModel,commands: CommandRegistry, registry: DocumentRegistry, {clientX, clientY}: {clientX: number, clientY: number}) {
+        super({ commands });
+        this._init(model, commands, registry);
+
+        console.log(model);
+        this.open(clientX, clientY);
+    }
+
+    private _init(model: IModel,commands: CommandRegistry, registry: DocumentRegistry) {
+        const CommandIDs = CommandsReg.IDs;
+        if(!model) {
+            this.addItem({ command: CommandIDs.paste});
+            return this;
+        }
+
+        this.addItem({ command: CommandIDs.open });
+        this.addItem({ command: CommandIDs.rename });
+        this.addItem({ command: CommandIDs.del });
+        this.addItem({ command: CommandIDs.cut });
+        this.addItem({ command: CommandIDs.share });
+        this.addItem({ command: CommandIDs.copyPath });
+        this.addItem({ command: CommandIDs.copyDownloadLink });
+
+        if(model.type !== 'directory') {
+            this.addItem({ command: CommandIDs.openBrowserTab });
+            
+            const PATH = model.path;
+            const factories = registry.preferredWidgetFactories(PATH).map(f => f.name);
+            const notebookFactory = registry.getWidgetFactory('notebook').name;
+
+            (
+                model.type === 'notebook'
+                && factories.indexOf(notebookFactory) === -1
+            ) && factories.unshift(notebookFactory);
+
+            if(PATH && factories.length > 1) {
+                const command = 'docmanager:open';
+                const openWith = new Menu({ commands });
+                openWith.title.label = 'Open With';
+                factories.forEach(factory => {
+                    openWith.addItem({ args: { factory, PATH }, command });
+                });
+                this.addItem({ type: 'submenu', submenu: openWith });
+            }
+
+            this.addItem({ command: CommandIDs.copy });
+            this.addItem({ command: CommandIDs.duplicate });
+            this.addItem({ command: CommandIDs.download });
+            this.addItem({ command: CommandIDs.shutdown });
+        }
+
+    }
+}   
+```
+
+```typescript
+/** jupyterlab-model/src/widget/file-model.ts */
+import * as React from 'react';
+import { Contents } from '@jupyterlab/services';
+import { IDocumentManager } from '@jupyterlab/docmanager';
+import { CommandRegistry } from '@phosphor/commands';
+
+import { Store } from '../utils';
+import { CommandsReg } from '../registry';
+
+const PATH = "";
+function getIconClass(type: string): string {
+  const mapping = [
+    {
+      name: 'directory',
+      class: 'jp-OpenFolderIcon',
+    },
+    {
+      name: 'notebook',
+      class: 'jp-NotebookIcon',
+    },
+    {
+      name: 'file',
+      class: 'jp-FileIcon'
+    }
+  ];
+  return (mapping.filter(({name}) => name === type)[0] || {class: 'directory'}).class;
+}
+
+export type IProps = {
+    model: Contents.IModel;
+};
+export type IState = {
+
+};
+export default class Model extends React.PureComponent<IProps, IState> {
+    public componentDidMount() {
+        this.commands = new Store<CommandRegistry>("commands").get();
+        this.manager = new Store<IDocumentManager>("manager").get()
+    }
+    render() {
+        const model: Contents.IModel = this.props.model;
+
+        const {
+            type,
+            name,
+            last_modified,
+        } = model;
+
+        return (
+            <li
+                  onDoubleClick={() => {
+                    this.handleModelClick(model);
+                  }}
+                  // onContextMenu={async (e) => {
+                  //   e.preventDefault();
+
+                  //   // const {
+                  //   //   clientX,
+                  //   //   clientY
+                  //   // } = e;
+                  //   // const {
+                  //   //   commands,
+                  //   //   manager
+                  //   // } = this
+                    
+                  //   // commands && manager
+                  //   //   && new ContextMenu(model, commands, manager.registry, {clientX, clientY})
+                  // }}
+                  onClick={() => {
+                    this.handleModelSelect('click', model);
+                  }}
+                  onDrag={e => {
+                    e.preventDefault();
+                    console.log(model);
+                  }}
+                  className={`jp-DirListing-item`}
+                  title={name}
+                >
+                  <span className={jp-DirListing-itemIcon jp-MaterialIcon ${getIconClass(type)}/>
+                  <span className="jp-DirListing-itemText">{name}</span>
+                  <span
+                    className="jp-DirListing-itemModified"
+                    title={last_modified}
+                  >
+                    {last_modified.substr(0, 10)}
+                  </span>
+            </li>
+        )
+    }
+
+    private handleModelSelect(type: string, model: Contents.IModel):void {
+        if(type === 'db-click '){
+          this.handleModelClick(model);
+        }
+    
+        if(type === 'click') {
+          this.setState({
+            activateModel: model,
+          });
+    
+          const manager:IDocumentManager | void = this.manager;
+          if(!manager) return;
+          manager.services.contents.get(`${PATH}/${model.path}`)
+            .then(contents => {
+              console.log(contents);
+            })
+        }
+      }
+    
+      private handleModelClick(model: Contents.IModel):void {
+        const { type, path } = model;
+        const commands: CommandRegistry | void = this.commands;
+    
+        if(!commands) return;
+        if(type !== "directory") {
+          commands.execute('docmanager:open', {path});
+          return
+        }
+
+        commands.execute(CommandsReg.IDs.open, {path});
+      }
+    
+  private manager: IDocumentManager;
+  private commands: CommandRegistry;
+}
+```
+
+```typescript
+/** jupyterlab-model/src/widget/filebrowser.ts */
+import * as React from "react";
+import * as ReactDom from "react-dom";
+
+import { Contents } from "@jupyterlab/services";
+import { Store } from "../utils";
+import { IDocumentManager } from "@jupyterlab/docmanager";
+
+import Model from './file-model';
+// import ContextMenu from './contextmenu';
+// import { Widget } from '@phosphor/widgets';
+
+
+const PATH = "";
+
+export type M = Contents.IModel;
+export interface IState {
+  data: Array<M>;
+  activateModel: M | void;
+}
+export default class FileBrowser extends React.PureComponent<{}, IState> {
+  async componentWillMount() {
+    const manager: IDocumentManager | void = this.manager = new Store<IDocumentManager>("manager").get();
+    const data: Array<M> = manager 
+      && (((await manager.services.contents.get(PATH)) as M).content as Array<M>);
+    data && this.setState({ data, activateModel: void 0 });
+  }
+
+  public render(): React.ReactNode {
+    const { data = [], } = this.state || {};
+    return (
+      <div style={{fontSize: '10px'}} className="p-Widget jp-DirListing jp-FileBrowser-listing jp-mod-selected">
+        <div className="jp-DirListing-header">
+          <div className="jp-DirListing-headerItem jp-id-name jp-mod-selected">
+            <span className="jp-DirListing-headerItemText">Name</span>
+            <span className="jp-DirListing-headerItemIcon" />
+          </div>
+          <div className="jp-DirListing-headerItem jp-id-modified">
+            <span className="jp-DirListing-headerItemText">Last Modified</span>
+            <span className="jp-DirListing-headerItemIcon" />
+          </div>
+        </div>
+        <ul className="jp-DirListing-content">
+          {
+            data.map((model: M) => <Model key={model.path} model={model} />)
+          }
+        </ul>
+      </div>
+    );
+  }
+
+  private manager: IDocumentManager;
+}
+
+export function renderContent(node: Element) {
+  ReactDom.render(<FileBrowser />, node);
+}
+```
+
+```typescript
+/** jupyterlab-model/src/browserContent.tsx */
+import * as React from 'react';
+import * as ReactDom from 'react-dom';
+
+import { IReturnModelFile, IModelTypeRoot, IModelType, IModel } from './models/modelFile';
+import { getModelInfo, Store } from './utils';
+
+import Tree, { Tnode } from './components/tree';
+import ToolBar from './components/toolbar';
+import BtnAddFile from './components/btns/addFile';
+import BtnAddFolder from './components/btns/addFolder';
+import BtnUpload from './components/btns/upload';
+import BtnRefresh from './components/btns/refresh';
+import { IDocumentManager } from '@jupyterlab/docmanager';
+
+interface IState {
+    modelInfo: IModelTypeRoot[];
+    checkedNode?: Tnode;
+}
+
+function convertTypeRoot(node: IModelTypeRoot): Tnode {
+    const id: string = String(node.father_id);
+    const name: string = node.type_name;
+    const children = node.child.map((modelType: IModelType) => convertModelType(modelType))
+    let results = {
+        id,
+        name,
+        children,
+    };
+    return results;
+}
+
+function convertModelType(modelType: IModelType): Tnode {
+    const id: string = String(modelType.cid);
+    const name: string = modelType.cname;
+    const children = modelType.mdesc.map((model: IModel) => convertModel(model));
+    return { id, name, children };
+}
+
+function convertModel(model: IModel): Tnode {
+    const id: string = String(model.mid);
+    const name: string = model.mname;
+    return { id, name};
+}
+
+export class FileBrowser extends React.PureComponent<{}, IState> {
+    public async componentDidMount() {
+        const modelRes: IReturnModelFile = await getModelInfo();
+        const modelInfo: IModelTypeRoot[] = modelRes.type;
+        this.setState({
+            modelInfo
+        });
+
+        const manager: IDocumentManager | void = new Store<IDocumentManager>('manager').get();
+        manager && manager.services.contents.get('test').then((contents) => {
+            console.log(contents);
+        });
+    }
+
+    public render() {
+        const { modelInfo = [] } = this.state || {};
+        return (
+            <div className="jp-panel-file">
+                <ToolBar>
+                    {
+                        this.renderToolsBtn()
+                    }
+                </ToolBar>
+                <Tree
+                    data={ modelInfo }
+                    converter={
+                        (modelInfo: IModelTypeRoot[]) => {
+                            return modelInfo.map(
+                                (modelTypeRoot: IModelTypeRoot) => convertTypeRoot(modelTypeRoot)
+                            )
+                        }
+                    }
+                    eventAfterChecked = {
+                        (checkedNode: Tnode) => {
+                            // this.setState({checkedNode})
+                        }
+                    }
+                />
+            </div>
+        )
+    }
+
+    private renderToolsBtn() {
+        let {
+            checkedNode: {
+                sequ = ''
+            } = {},
+        } = this.state || {};
+        const deep = sequ.split('.').length;
+        if(deep < 2) {
+            return (
+                <>
+                    <BtnAddFolder />
+                    <BtnUpload />
+                    <BtnRefresh />
+                </>
+            );
+        }
+        return (
+            <>
+                <BtnAddFile />
+                <BtnUpload />
+                <BtnRefresh />
+            </>
+        )
+    }
+}
+
+export default function renderContent(node: Element) {
+    ReactDom.render(
+        <FileBrowser />,
+        node
+    )
+}
+```
+
+```typescript
+/** jupyterlab-model/src/filebrowser.tsx */
+import {
+    Widget, PanelLayout
+} from '@phosphor/widgets';
+import {IDocumentManager} from '@jupyterlab/docmanager'
+
+import { renderContent } from './widget/filebrowser';
+
+export default class F extends Widget {
+    constructor(manager: IDocumentManager) {
+        super();
+        this.layout = new PanelLayout();
+        this._browser = new Widget();
+        (this.layout as PanelLayout).addWidget(this._browser);
+
+        renderContent(
+            this._browser.node
+        );
+    }
+
+    private _browser: Widget;
+}
+```
+
+```typescript
+/** jupyterlab-model/src/index.tsx */
+import {
+    JupyterLab, JupyterLabPlugin, ILayoutRestorer
+} from '@jupyterlab/application';
+import {
+    ICommandPalette,
+} from '@jupyterlab/apputils';
+import {
+    IFileBrowserFactory,
+} from '@jupyterlab/filebrowser'
+import {
+    ILauncher,
+} from '@jupyterlab/launcher'
+import { IDocumentManager } from '@jupyterlab/docmanager';
+import {CommandRegistry} from '@phosphor/commands'
+
+import { Store } from './utils';
+import FileBrowsers from './filebrowser';
+import '../style/index.css';
+
+
+function activate(
+    app: JupyterLab,
+    palette: ICommandPalette,
+    restorer: ILayoutRestorer,
+    factory: IFileBrowserFactory,
+    launcher: ILauncher,
+    manager: IDocumentManager
+) {
+    const {commands} = app;
+    new Store<IDocumentManager>('manager', manager);
+    new Store<CommandRegistry>('commands', commands);
+
+    const fileBrowsers = new FileBrowsers(manager);
+    fileBrowsers.title.iconClass = 'jp-file-icon jp-SideBar-tabIcon';
+    fileBrowsers.title.caption = 'Browse ownerFile';
+
+    fileBrowsers.id = 'owner-file-aa';
+    restorer.add(fileBrowsers, 'owner-file-aa');
+    app.shell.addToLeftArea(fileBrowsers, { rank: 102 });
+
+    launcher.add({
+        command: 'ts',
+    });
+
+}
+
+/**
+ * Initialization data for the jupyterlab_xkcd extension.
+ */
+const extension: JupyterLabPlugin<void> = {
+    id: 'jupyterlab_xkcd',
+    autoStart: true,
+    requires: [ICommandPalette, ILayoutRestorer, IFileBrowserFactory, ILauncher, IDocumentManager],
+    activate: activate
+};
+
+export default extension;
+```
+
+```typescript
+/** jupyterlab-model/src/registry.ts */
+import { CommandRegistry } from '@phosphor/commands';
+import { IDocumentManager } from '@jupyterlab/docmanager';
+import { Contents } from '@jupyterlab/services';
+
+
+export namespace CommandsReg {
+    export namespace IDs {
+        export const copy = 'filebrowser:copy';
+      
+        export const copyDownloadLink = 'filebrowser:copy-download-link';
+      
+        // For main browser only.
+        export const createLauncher = 'filebrowser:create-main-launcher';
+      
+        export const cut = 'filebrowser:cut';
+      
+        export const del = 'filebrowser:delete';
+      
+        export const download = 'filebrowser:download';
+      
+        export const duplicate = 'filebrowser:duplicate';
+      
+        // For main browser only.
+        export const hideBrowser = 'filebrowser:hide-main';
+      
+        export const navigate = 'filebrowser:navigate';
+      
+        export const open = 'filebrowser:open';
+      
+        export const openBrowserTab = 'filebrowser:open-browser-tab';
+      
+        export const paste = 'filebrowser:paste';
+      
+        export const rename = 'filebrowser:rename';
+      
+        // For main browser only.
+        export const share = 'filebrowser:share-main';
+      
+        // For main browser only.
+        export const copyPath = 'filebrowser:copy-path';
+      
+        export const showBrowser = 'filebrowser:activate';
+      
+        export const shutdown = 'filebrowser:shutdown';
+      
+        // For main browser only.
+        export const toggleBrowser = 'filebrowser:toggle-main';
+    }
+    export const regCommands = (commands: CommandRegistry, manager: IDocumentManager, model: Contents.IModel) => {
+        commands.addCommand(IDs.open, {
+            execute() {
+                manager.open(model.path);
+            }
+        });
+        
+    }
+}
+```
+
+```typescript
+/** jupyterlab-model/src/utils.ts */
+import { IReturnModelFile } from './models/modelFile'
+
+/**
+ * 获取模型分类与基础信息
+ */
+export async function getModelInfo(): Promise<IReturnModelFile> {
+    var request:Response = await fetch('/model/type');
+    return new Promise<IReturnModelFile>(async (resolve, reject) => {
+        var res = await request.json();
+        resolve(res as IReturnModelFile);
+    });
+}
+
+export type Tmodel = {
+    Model_Name: string;
+    Code: string;
+    Permission: number;
+    Desc: string;
+    ctype_id: number;
+}
+export async function addModel(model: Tmodel) {
+    
+}
+
+window.__s_t_o_r_e = [];
+export class Store<T> {
+    public name: string = '';
+    constructor(name: string, data?:T) {
+        this.name = name;
+        data && this.set(data);
+    }
+
+    public set(data: T) {
+        const {name} = this;
+        window.__s_t_o_r_e.push({
+            name,
+            data,
+        });
+    }
+
+    public get():T {
+        return (
+            window.__s_t_o_r_e.filter(({name}) => name === this.name)[0]
+                || {}
+        ).data;
+    }
+}
+
+declare namespace window {
+    let __s_t_o_r_e:  Array<Object | any>;
+}
+```
+
+
+
+
 
