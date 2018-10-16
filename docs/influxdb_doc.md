@@ -157,7 +157,7 @@ create retention policy "one_day_only" on "NOAA_water_database" duration 1d repl
 ##### 2. 创建默认的
 
 ```
- create retention policy "one_day_only" on "NOAA_water_database" duration 23h60m replication 1 default
+ create retention policy "one_day_only" on "NOAA_water_database" duration 23h60m replication 1 defaul
 ```
 
 创建与上面示例中相同的保留策略，但将其设置为数据库的默认保留策略。
